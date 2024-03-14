@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- базовый шаблон -->
+<html>
+  <head>
+    <title>
+      {% block title %}
+      {% endblock title %}
+    </title>
+    <style>
+      .menu{
+          /* установка флекс */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: red;
+        font-size: 16pt;
+      }
+    </style>
+    {% block extra_head %}
+    {% endblock extra_head %}
+  </head>
+  <body>
+    {% block header%}
+      <div class="menu">
+        {% include 'menu.html '%}
+      </div>  
+    {% endblock header%}
+    <div align="center">
+      {% block content %}
+        <h1>Интернет-каталог библиотеки №7 им. Чернышевского.</h1>
+      {% endblock content %}
+    </div>
+    <div align="center">
+      {% block extra_content %}
+      {% endblock extra_content %}
+    </div>  
+  </body>
+</html>  
