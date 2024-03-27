@@ -34,7 +34,7 @@ ROOT_URLCONF = 'core.urls'
 
 INSTALLED_APPS = [
     # внешние приложения
-    
+    'django_bootstrap5',
     # встроенные приложения
     'django.contrib.admin',
     'django.contrib.auth',

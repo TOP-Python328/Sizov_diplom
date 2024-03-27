@@ -65,6 +65,10 @@ footer{
     flex-direction: column; 
 }
 
+.text1{
+    color: aliceblue;
+}
+
 .hr1{
     width: 90%;
 }
@@ -81,4 +85,8 @@ a {
 a:hover {
     color: aliceblue; /* Цвет ссылки при наведении на нее курсора мыши */  
     text-decoration: underline; /* Добавляем подчеркивание */
+}
+
+.aligncenter {
+    text-align: center;
 }

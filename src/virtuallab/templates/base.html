@@ -1,6 +1,9 @@
 <!DOCTYPE html>
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% get_current_language as lang_code %}
 
-<html>
+<html lang="{{ lang_code|default:'ru_ru' }}">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,11 +13,15 @@
       {% block title %}
       {% endblock title %}
     </title>
+    
+    {% bootstrap_css %}
 
     {% block extra_head %}
       {% load static %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock extra_head %}
+
+    
   </head>
   <body>
     {% block header%}
@@ -33,5 +40,7 @@
       {% block extra_content %}
       {% endblock extra_content %}
     </div>  
+    
+    {% bootstrap_javascript %}
   </body>
 </html>  
