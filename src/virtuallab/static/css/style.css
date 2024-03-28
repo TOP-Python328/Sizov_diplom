@@ -37,18 +37,20 @@ header{
 nav{
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
+    justify-content: space-between;
+    gap: 25px;
 
     padding-bottom: 20px;
     padding-top: 20px;
     padding-left: 100px;
+    padding-right: 50px;
     
     background-color: rgb(20, 3, 95);
      
     margin-left: 100px; 
     margin-right: 100px;
-    
+
+    font-size: 24px;
 }
 
 

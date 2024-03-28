@@ -1,5 +1,9 @@
 <nav>
-    <a href="{% url 'main' %}">Главная</a></td>
+  <div>
+    <a href="{% url 'main' %}">Главная  </a>
     <a href="#">Тренажер</a></td>    
-    <a href="#">Войти</a></td>    
+  </div>
+  <div>
+    <a href="{% url 'user_login' %}">Вход</a>
+  </div>
 </nav>
