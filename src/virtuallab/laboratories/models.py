@@ -19,6 +19,7 @@ class Task(models.Model):
     
     number = models.CharField(max_length=20)
     description = models.TextField()
+    solution = models.CharField(max_length=200)
     laboratory = models.ForeignKey(Laboratory, on_delete=models.CASCADE)
     
     def __repr__(self):
@@ -32,6 +33,8 @@ class TaskSolution(models.Model):
     time_start = models.DateTimeField(auto_now_add=True)
     time_end = models.DateTimeField()
     solution = models.CharField(max_length=200)
+    status = models.CharField(max_length=20) # подумать над перечислителем
+    grade = models.PositiveSmallIntegerField()
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-    users = models.ForeignKey(Schoolboy, on_delete=models.CASCADE)
+    user = models.ForeignKey(Schoolboy, on_delete=models.CASCADE)
