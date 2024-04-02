@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  Добавление лаборатории
+{% endblock title %}
+
+
+
+{% block content %}
+  <header>
+        <h1>Добавление Лаборатории</h1>
+  </header>  
+  
+  <main>       
+
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="divcenter">
+        <table cellpadding=10>
+          <tr>
+            <td colspan=2 align="center">      
+              <div class="aligncenter">Введите название:</div>
+              <input type="text" name="title" required>
+            </td>
+          </tr>      
+          <tr>
+            <td colspan=2 align="center">
+              <div class="aligncenter">Введите имя файла с картинкой:</div>
+              <input type="text" name="img" required>
+            </td>
+          </tr>      
+          <tr>
+            <td colspan=2 align="center">
+              <input type="submit" value="Добавить">
+            </td>
+          </tr> 
+        </table>
+      </div>
+    </form>
+  </main>  
+{% endblock content %}
+

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  Добавление задачи
+{% endblock title %}
+
+
+
+{% block content %}
+  <header>
+        <h1>Добавление задачи</h1>
+  </header>  
+  
+  <main>       
+
+    <form action="" method="post">
+      {% csrf_token %}
+    
+      <div class="divcenter">
+        <table cellpadding=10>
+          <tr>
+            <td colspan=2 align="center">
+              <div class="aligncenter">Выбирете лабораторию:</div>
+              <select name="lab_id" required>
+              <option disabled selected></option>
+              {% for lab in laboratories %}
+                <option value="{{ lab.id }}">{{ lab }}</option>
+              {% endfor %}
+            </td>
+          </tr>      
+          <tr>
+            <td colspan=2 align="center">
+              <div class="aligncenter">Введите номер задания:</div>
+              <input type="text" name="number" required>
+            </td>
+          </tr>      
+          <tr>
+            <td colspan=2 align="center">
+              <div class="aligncenter">Введите описание задачи:</div>
+              <textarea name="description" cols=100 rows=10 required></textarea>
+            </td>
+          </tr>      
+          <tr>
+            <td colspan=2 align="center">
+              <input type="submit" value="Добавить">
+            </td>
+          </tr> 
+        </table>
+      </div>
+    </form>
+  </main>
+{% endblock content %}

@@ -9,6 +9,29 @@ from django.contrib.auth import (
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
+def login(request):
+    if request.method == 'GET':
+        form = AuthenticationForm()
+    
+    elif request.method == 'POST':
+        
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            auth_login(request, form.get_user())
+            return redirect('main', permanent=True)    
+    
+    return render(
+        request,
+        'login.html',
+        {'form': form}
+    )
+
+
+def logout(request):
+    auth_logout(request)
+    return redirect('main', permanent=True)
+
+
 def register_teacher(request):
     if request.method == 'GET':
         form = UserCreationForm()
@@ -25,34 +48,31 @@ def register_teacher(request):
         {'form': form}
     )
 
-    
-def login(request):
+
+def register_user(request):
     if request.method == 'GET':
-        form = AuthenticationForm()
+        form = UserCreationForm()
     
     elif request.method == 'POST':
-        
-        form = AuthenticationForm(data=request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            auth_login(request, form.get_user())
+            form.save()
             return redirect('main', permanent=True)
-        
-        # user = authenticate(
-        #     request,
-        #     username=request.POST['username'],
-        #     password=request.POST['password'],
-        # )
-        # auth_login(request, user)
-        # return redirect('main', permanent=True)
-    
     
     return render(
         request,
-        'login.html',
+        'register_user.html',
         {'form': form}
     )
 
 
-def logout(request):
-    auth_logout(request)
-    return redirect('main', permanent=True)
+def teacher(request, uid: str):
+#    author = authors_cache[name]
+    return render(
+        request, 
+        'teacher.html',
+        {
+            'teacher': author,
+            'users': teacher.schoolboy.all(),
+        }
+    )    

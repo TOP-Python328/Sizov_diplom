@@ -19,6 +19,15 @@ div{
     text-align: justify;
 }
 
+.divcenter{
+    /* установка флекс */
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
 
 header{
     background-color: rgb(91, 235, 72);
@@ -91,4 +100,23 @@ a:hover {
 
 .aligncenter {
     text-align: center;
+}
+
+.laboratory {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.laboratory div {
+    width: 450px;
+    /* background-color: rgb(253, 218, 141); */ 
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    border:  2px double rosybrown;
 }

@@ -8,9 +8,13 @@ class Laboratory(models.Model):
         db_table = 'laboratories'
     
     title = models.CharField(max_length=20, unique=True)
+    img = models.CharField(max_length=20)
 
     def __repr__(self):
         return self.title
+        
+    def __str__(self):
+        return self.title    
 
 
 class Task(models.Model):
