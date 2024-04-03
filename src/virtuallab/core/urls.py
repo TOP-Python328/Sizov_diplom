@@ -21,4 +21,5 @@ urlpatterns = [
     path('laboratories', lviews.laboratories, name='laboratories'),
     path('add_laboratory', lviews.add_laboratory, name='add_laboratory'),
     path('add_task', lviews.add_task, name='add_task'),
+    path('tasks', lviews.tasks, name='tasks'),
 ]

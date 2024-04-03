@@ -2,8 +2,14 @@
   <div>
     <a href="{% url 'main' %}">Главная  </a>
     <a href="{% url 'laboratories' %}">Лаборатории</a></td>    
+    <a href="{% url 'tasks' %}">Задачи</a></td>
   </div>
   <div>
-    <a href="{% url 'user_login' %}">Вход</a>
+    {% if user.is_authenticated %}
+      {{ user.username }}, <a href="{% url 'user_logout' %}">выход</a>
+    {% else %}
+      <a href="{% url 'user_login' %}">Вход</a>
+    {% endif %}
+
   </div>
 </nav>

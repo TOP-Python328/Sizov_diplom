@@ -19,10 +19,17 @@
         <div>
           <h2> {{ lab }}</h2>
             <!--<img src="{% static 'img/lab_1.jpg' %}" alt="">-->
-            <img src="{% static '{{ lab.img }}' %}" alt="">
-            <p>{{lab.img}}</p>
+            <img src="{% static lab.img %}" alt="">
         </div>
       {% endfor %}
     </div>
+    
+    {% if user.is_staff %}
+      <br>
+      <div class="divcenter">
+        <a href="{% url 'add_laboratory' %}" class="btn">Добавить лабораторию</a>
+      </div>  
+    {% endif %}  
+
   </main>
 {% endblock content %}

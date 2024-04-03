@@ -62,6 +62,9 @@ nav{
     font-size: 24px;
 }
 
+nav>div{
+  color: aliceblue;  
+}
 
 footer{
     background-color: rgb(38, 86, 219);
@@ -142,4 +145,13 @@ a:hover {
 
 .foto>div>img{
     border-radius: 5px;
+}
+
+.btn {
+    display: inline-block; /* Строчно-блочный элемент */
+    background: #8C959D; /* Серый цвет фона */
+    color: #fff; /* Белый цвет текста */
+    padding: 1rem 1.5rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; /* Скругляем уголки */
 }

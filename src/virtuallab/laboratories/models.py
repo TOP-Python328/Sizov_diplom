@@ -27,7 +27,10 @@ class Task(models.Model):
     laboratory = models.ForeignKey(Laboratory, on_delete=models.CASCADE)
     
     def __repr__(self):
-        return f'{self.number}: {description}'
+        return f'{self.number}: {self.description}'
+        
+    def __str__(self):
+        return f'{self.number}: {self.description}'
 
 
 class TaskSolution(models.Model):

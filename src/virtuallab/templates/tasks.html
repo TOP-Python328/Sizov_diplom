@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  Список задач
+{% endblock title %}
+
+
+
+{% block content %}
+  <header>
+        <h1>Список задач</h1>
+  </header>  
+  
+  <main>       
+
+    <form action="" method="post">
+      {% csrf_token %}
+    
+      <div class="divcenter">
+        <table border="1">
+          {% for lab in laboratories %}
+            <tr style="font-weight: bold;">
+                <td>{{ lab }}</td> 
+            </tr>
+            {% for task in tasks %}
+              {% if task.laboratory == lab %}
+              <tr>
+                <td>{{ task.number }}</td> 
+                <td>{{ task.description }}</td>
+              </tr>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        </table>
+      </div>
+    </form>
+  </main>
+{% endblock content %}
