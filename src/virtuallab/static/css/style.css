@@ -120,3 +120,26 @@ a:hover {
     border-radius: 10px;
     border:  2px double rosybrown;
 }
+
+.foto{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.foto div{
+    background-color: white;
+    width: 450px;
+    height: 550px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.foto>div>img{
+    border-radius: 5px;
+}
