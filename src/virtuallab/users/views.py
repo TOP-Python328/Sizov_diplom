@@ -1,3 +1,6 @@
+import random
+
+
 from django.shortcuts import render, redirect
 
 
@@ -8,6 +11,8 @@ from django.contrib.auth import (
 )
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
+from users.forms import AddTeacherForm
+from users.models import Teacher
 
 def login(request):
     if request.method == 'GET':
@@ -34,13 +39,26 @@ def logout(request):
 
 def register_teacher(request):
     if request.method == 'GET':
-        form = UserCreationForm()
+       # form = UserCreationForm()
+        form = AddTeacherForm()
     
     elif request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = AddTeacherForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('main', permanent=True)
+            user = form.save()
+            if user:
+                teacher = Teacher(
+                        user = user,
+                        last_name = request.POST['last_name'],
+                        first_name = request.POST['first_name'],
+                        patr_name = request.POST['patr_name'],
+                        uid = str(random.randint(0, 9999)),
+                        organization = request.POST['organization'],
+                        post = request.POST['post'],                
+                )
+                teacher.save()
+#                print(teacher)
+                return redirect('main', permanent=True)
     
     return render(
         request,

@@ -26,6 +26,12 @@ class Teacher(Person):
         
     post = models.CharField(verbose_name='Должность', max_length=100)
 
+    def __repr__(self):
+        return f'{self.last_name} {self.first_name}'
+        
+    def __str__(self):
+        return f'{self.last_name} {self.first_name}'
+
 
 class Group(Person):
     class Meta:
