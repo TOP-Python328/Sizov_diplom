@@ -87,6 +87,11 @@ footer{
     width: 90%;
 }
 
+.hr2{
+    width: 90%;
+    color: black;
+}
+
 a {
     color: aliceblue; /* Цвет обычной ссылки */ 
     text-decoration: none; /* Убираем подчеркивание */

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  Администрирование
+{% endblock title %}
+
+{% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% block content %}
+  <header>
+        <h1>Управление проектом</h1>
+  </header>  
+  
+  <main>       
+    <div class="aligncenter">
+    
+      <hr class="hr2">
+      <h4>Добавление класса</h4>
+      <form action="" method="post">
+        {% csrf_token %}
+    
+        {{ form.as_table }}
+        
+        <input type="submit" value="Добавить">
+
+      </form>
+    </div>
+  </main>
+{% endblock content %}
