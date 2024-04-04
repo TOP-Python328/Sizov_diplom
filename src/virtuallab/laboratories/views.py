@@ -5,7 +5,7 @@ from laboratories.models import Laboratory, Task
 
 def add_laboratory(request):  
     if request.method == 'POST':
-        Laboratory(title=request.POST['title']).save()
+        Laboratory(title=request.POST['title'],img=request.POST['img']).save()
         
     return render(
             request,
