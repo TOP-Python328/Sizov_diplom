@@ -33,7 +33,7 @@ class Teacher(Person):
         return f'{self.last_name} {self.first_name}'
 
 
-class Group(Person):
+class Group(models.Model):
     class Meta:
         db_table = 'groups'
     
@@ -41,7 +41,7 @@ class Group(Person):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     
       
-class Schoolboy(models.Model):
+class Schoolboy(Person):
     class Meta:
         db_table = 'schoolboys'        
 

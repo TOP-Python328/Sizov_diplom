@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import BaseUserCreationForm
 
+from users.models import Group
+
 
 class AddTeacherForm(BaseUserCreationForm):
     last_name = forms.CharField(
@@ -37,3 +39,9 @@ class AddTeacherForm(BaseUserCreationForm):
         user = super().save()
 #        print(user)
         return user
+        
+        
+class AddGroupForm(forms.ModelForm):
+    class Meta:
+        model = Group
+        fields = ['title','teacher']

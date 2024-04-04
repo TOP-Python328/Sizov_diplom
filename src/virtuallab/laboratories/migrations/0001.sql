@@ -2,7 +2,7 @@ BEGIN;
 --
 -- Create model Laboratory
 --
-CREATE TABLE "laboratories" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(20) NOT NULL UNIQUE);
+CREATE TABLE "laboratories" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(20) NOT NULL UNIQUE, "img" varchar(20) NOT NULL);
 --
 -- Create model Task
 --
