@@ -10,6 +10,7 @@ from django.contrib.auth import (
     logout as auth_logout,
 )
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import Group
 
 from users.forms import AddTeacherForm
 from users.models import Teacher
@@ -57,6 +58,8 @@ def register_teacher(request):
                         post = request.POST['post'],                
                 )
                 teacher.save()
+                group = Group.objects.get(name='Учителя')
+                user.groups.add(group)
 #                print(teacher)
                 return redirect('main', permanent=True)
     
