@@ -38,7 +38,7 @@ class Group(models.Model):
         db_table = 'groups'
     
     title = models.CharField(verbose_name="номер", max_length=10) 
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    teacher = models.ForeignKey(Teacher, verbose_name='Учитель', on_delete=models.CASCADE)
     
       
 class Schoolboy(Person):

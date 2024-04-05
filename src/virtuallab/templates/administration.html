@@ -15,14 +15,32 @@
   
   <main>       
     <div class="aligncenter">
-    
-      <hr class="hr2">
-      <h4>Добавление класса</h4>
+      <h3>Лаборатории</h3>
       <form action="" method="post">
         {% csrf_token %}
-    
-        {{ form.as_table }}
+        <input name="form" type="hidden" value="add_lab">
         
+        <div class="divcenter">
+          {% for lab in laboratories %}
+            <div class="lab_mini">
+              <h4> {{ lab }}</h4>
+              <img src="{% static lab.img %}" alt="" width="40%">
+            </div>
+          {% endfor %}
+        </div>
+        <br>
+        {{ form1.as_table }}
+        <input type="submit" value="Добавить">
+      </form>
+      <div class="divcenter">
+        <hr class="hr2">
+      </div>  
+      <h3>Добавление класса</h3>
+      <br>
+      <form action="" method="post">
+        {% csrf_token %}
+        <input name="form" type="hidden" value="add_group">
+        {{ form2.as_table }}
         <input type="submit" value="Добавить">
 
       </form>

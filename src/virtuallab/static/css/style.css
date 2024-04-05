@@ -90,6 +90,7 @@ footer{
 .hr2{
     width: 90%;
     color: black;
+    border-width: 5px;
 }
 
 a {
@@ -159,4 +160,13 @@ a:hover {
     padding: 1rem 1.5rem; /* Поля вокруг текста */
     text-decoration: none; /* Убираем подчёркивание */
     border-radius: 3px; /* Скругляем уголки */
+}
+
+.lab_mini {
+    width: 250px;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    border:  2px double rosybrown;
 }
