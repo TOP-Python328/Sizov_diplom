@@ -34,9 +34,117 @@
       </form>
       <div class="divcenter">
         <hr class="hr2">
+      </div> 
+      
+      <h3>Задачи</h3>
+      <div class="divcenter">
+        <table border="1">
+          <tr style="font-weight: bold;">
+              <td colspan=2 align="center">
+                Лаборатория
+              </td>
+              <td colspan=2 align="center">
+                Задача
+              </td>
+              <td colspan=2 align="center">
+                Описание
+              </td>
+          </tr>
+          {% for task in tasks %}        
+            <tr>
+              <td colspan=2 align="center">
+                {{ task.title }}
+              </td>
+              <td colspan=2 align="center">
+                {{ task.number }}
+              </td>
+              <td colspan=2 align="center">
+                {{ task.description }}
+              </td>
+            </tr>
+          {% endfor %}  
+        </table>
+        <br>
       </div>  
-      <h3>Добавление класса</h3>
-      <br>
+      <div class="divcenter">
+        <a href="{% url 'add_task' %}" class="btn">Добавить задачу</a> 
+      </div>  
+      <div class="divcenter">
+        <hr class="hr2">
+      </div>  
+      
+      <h3>Учителя</h3>
+      <div class="divcenter">
+        <table border="1">
+          <tr style="font-weight: bold;">
+              <td colspan=2 align="center">
+                Фамилия
+              </td>
+              <td colspan=2 align="center">
+                Имя
+              </td>
+              <td colspan=2 align="center">
+                Отчество
+              </td>
+              <td colspan=2 align="center">
+                Должность
+              </td>
+              <td colspan=2 align="center">
+                Организация
+              </td>
+          </tr>
+          {% for teacher in teachers %}        
+            <tr>
+              <td colspan=2 align="center">
+                {{ teacher.last_name }}
+              </td>
+              <td colspan=2 align="center">
+                {{ teacher.first_name }}
+              </td>
+              <td colspan=2 align="center">
+                {{ teacher.patr_name }}
+              </td>
+              <td colspan=2 align="center">
+                {{ teacher.post }}
+              </td>
+              <td colspan=2 align="center">
+                {{ teacher.organization }}
+              </td>
+            </tr>
+          {% endfor %}  
+        </table>
+        <br>
+      </div>  
+      <div class="divcenter">
+        <a href="{% url 'teacher_register' %}" class="btn">Добавить учителя</a> 
+      </div>  
+      <div class="divcenter">
+        <hr class="hr2">
+      </div>
+      
+      <h3>Классы</h3>
+      <div class="divcenter">
+        <table border="1">
+          <tr style="font-weight: bold;">
+              <td colspan=2 align="center">
+                Учитель
+              </td>
+              <td colspan=2 align="center">
+                класс
+              </td>
+          </tr>
+          {% for group in groups %}        
+            <tr>
+              <td colspan=2 align="center">
+                {{ group.teacher }}
+              </td>
+              <td colspan=2 align="center">
+                {{ group.title }}
+              </td>
+            </tr>
+          {% endfor %}  
+        </table>  
+      </div>
       <form action="" method="post">
         {% csrf_token %}
         <input name="form" type="hidden" value="add_group">

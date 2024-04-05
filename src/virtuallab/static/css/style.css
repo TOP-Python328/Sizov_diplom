@@ -85,6 +85,8 @@ footer{
 
 .hr1{
     width: 90%;
+    color: white;
+    border-width: 3px;
 }
 
 .hr2{
@@ -169,4 +171,10 @@ a:hover {
     text-align: center;
     border-radius: 10px;
     border:  2px double rosybrown;
+}
+
+table , th, td {
+  border: 1px solid black;
+  cellpadding: 10;
+  bgcolor: white;
 }
