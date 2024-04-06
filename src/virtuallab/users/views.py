@@ -87,14 +87,20 @@ def register_user(request):
     )
 
 
-def teacher(request, uid: str):
-#    author = authors_cache[name]
-    teacher = Teacher.objects.get(uid=uid)
+#def teacher(request, uid: str):
+#    teacher = Teacher.objects.get(uid=uid)
+#    return render(
+#        request, 
+#        'teacher.html',
+#        {
+#            'teacher': teacher,
+#            'users': teacher.schoolboy.all(),
+#        }
+#    ) 
+def teacher(request):
     return render(
         request, 
         'teacher.html',
         {
-            'teacher': teacher,
-            'users': teacher.schoolboy.all(),
         }
     )    
