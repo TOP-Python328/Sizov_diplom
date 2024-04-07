@@ -97,10 +97,12 @@ def register_user(request):
 #            'users': teacher.schoolboy.all(),
 #        }
 #    ) 
-def teacher(request):
+def teacher(request, uid: str):
+    teacher = Teacher.objects.get(uid=uid)
     return render(
         request, 
         'teacher.html',
         {
+            'teacher': teacher,
         }
     )    

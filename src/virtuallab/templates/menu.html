@@ -1,7 +1,7 @@
 <nav>
   <div>
     <a href="{% url 'main' %}">Главная  </a>
-    <a href="{% url 'laboratories' %}">Лаборатории</a>   
+    <a href="{% url 'laboratories' %}">Тренажер</a>   
     {% if user.is_staff %}
         <a href="{% url 'administration' %}">Администрирование</a>
     {% endif %} 
@@ -13,8 +13,7 @@
         {% if group.name == 'Администраторы' %}
           Администратор
         {% elif group.name == 'Учителя' %}
-          {{ user.id }}
-          <a href="{% url 'teacher' %}">Личный кабинет</a>
+          <a href="{% url 'teacher' user.teacher.uid %}">Личный кабинет</a>
         {% elif group.name == 'Ученик' %}
           Личный кабинет ученика
         {% endif %}

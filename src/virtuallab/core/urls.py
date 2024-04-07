@@ -18,7 +18,8 @@ urlpatterns = [
     path('register', uviews.register_teacher, name='teacher_register'),
     path('login', uviews.login, name='user_login'),
     path('logout', uviews.logout, name='user_logout'),
-    path('teacher', uviews.teacher, name='teacher'),
+#    path('teacher', uviews.teacher, name='teacher'),
+    path('teacher/<str:uid>', uviews.teacher, name='teacher'),
     
     path('laboratories', lviews.laboratories, name='laboratories'),
     path('add_laboratory', lviews.add_laboratory, name='add_laboratory'),
