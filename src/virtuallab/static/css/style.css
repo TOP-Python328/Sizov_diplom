@@ -178,3 +178,14 @@ table , th, td {
   cellpadding: 10;
   bgcolor: white;
 }
+
+.tb2 {
+  border: 0px;
+  bgcolor: white;
+}
+
+.tb2 th, td {
+  border: 0px;
+  bgcolor: white;
+  padding: 15px;
+}
