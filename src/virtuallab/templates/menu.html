@@ -13,7 +13,7 @@
         {% if group.name == 'Администраторы' %}
           Администратор
         {% elif group.name == 'Учителя' %}
-          <a href="{% url 'teacher' user.teacher.uid %}">Личный кабинет</a>
+          <a href="{% url 'teacher' %}">Личный кабинет</a>
         {% elif group.name == 'Ученик' %}
           Личный кабинет ученика
         {% endif %}

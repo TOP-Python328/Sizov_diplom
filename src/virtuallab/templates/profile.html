@@ -29,17 +29,17 @@
           <!-- Элемент меню -->
           <li class="menu__item item">
             <!-- Ссылка меню -->
-            <a href="#" class="menu__link link">
-              <span>Классы</span>
+            <a href="{% url 'teacher' %}" class="menu__link link">
+              <span>Профиль</span>
             </a>
           </li>
           <li class="menu__item item">
-            <a href="#" class="menu__link link">
+            <a href="{% url 'teacher_users' %}" class="menu__link link">
               <span>Ученики</span>
             </a>
           </li>
           <li class="menu__item item">
-            <a href="#" class="menu__link link">
+            <a href="{% url 'teacher_tasks' %}" class="menu__link link">
               <span>Задачи</span>
             </a>
           </li>
@@ -49,13 +49,9 @@
             </a>
           </li>
           <li class="menu__item item">
-            <a href="#" class="menu__link link">
+            <!-- Ссылка меню -->
+            <a href="{% url 'teacher_setings' %}" class="menu__link link">
               <span>Управление</span>
-            </a>
-          </li>
-          <li class="menu__item item">
-            <a href="#" class="menu__link link">
-              <span>Профиль</span>
             </a>
           </li>
         </ul>

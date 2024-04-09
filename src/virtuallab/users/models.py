@@ -39,6 +39,8 @@ class Group(models.Model):
     
     title = models.CharField(verbose_name="номер", max_length=10) 
     teacher = models.ForeignKey(Teacher, verbose_name='Учитель', on_delete=models.CASCADE)
+    def __repr__(self):
+        return f'{self.title}'
     
       
 class Schoolboy(Person):
@@ -48,6 +50,10 @@ class Schoolboy(Person):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     
-
+    def __repr__(self):
+        return f'{self.last_name} {self.first_name}'
+        
+    def __str__(self):
+        return f'{self.last_name} {self.first_name} {self.patr_name }'
 
     

@@ -45,3 +45,38 @@ class AddGroupForm(forms.ModelForm):
     class Meta:
         model = Group
         fields = ['title','teacher']
+
+
+class AddSchoolboyForm(BaseUserCreationForm):
+    last_name = forms.CharField(
+        label='Фамилия',
+        max_length=30,
+    )
+    first_name = forms.CharField(
+        label='Имя',
+        max_length=30,
+    )
+    patr_name = forms.CharField(
+        label='Отчество',
+        max_length=30,
+    )
+    organization = forms.CharField(
+        label='Учебное заведение',
+        max_length=50,
+    )
+  
+#    group_id = forms.ChoiceField(
+#        label='класс',
+ #       choices= {'': ''} | {
+ #           group.id: repr(group)
+ #           for group in Group.objects.order_by('title')
+ #       },
+#    )  
+    
+    def is_valid(self):
+        is_valid = super().is_valid()
+        return is_valid
+        
+    def save(self):
+        user = super().save()
+        return user

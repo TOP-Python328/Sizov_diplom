@@ -108,3 +108,35 @@ body {
 ul {
 	list-style-type: none;
 }
+
+.btn {
+    display: inline-block; 
+    background: #8C959D; 
+    color: #fff; 
+    padding: 1rem 1.5rem; 
+    text-decoration: none; 
+    border-radius: 3px; 
+}
+
+.divcenter{
+    /* установка флекс */
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.aligncenter {
+    text-align: center;
+}
+
+.group {
+    width: 100px;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    border:  2px double rosybrown;
+}

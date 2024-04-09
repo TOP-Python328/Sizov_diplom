@@ -6,8 +6,16 @@
  
 {% block content %}
   <section class="content">
-        <!-- место для контента -->
-    выводим информацию
-    {{ teacher }}
+    <div class="divcenter">
+      <div>
+        <h2>{{ teacher }}</h2>
+      </div>
+      <div>  
+        Должность: {{ teacher.post }}
+      </div>
+      <div>
+        Организация: {{ teacher.organization }}
+      </div> 
+    </div>  
   </section>
 {% endblock content %} ﻿

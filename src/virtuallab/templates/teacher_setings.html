@@ -1,0 +1,67 @@
+{% extends 'profile.html' %}
+
+{% block title %}
+  Кабинет учителя
+{% endblock title %}
+
+  
+{% block content %}
+  <section class="content">
+    <div class="divcenter">
+      <h3>Классы</h3>
+    </div>
+          
+    <div class="divcenter">
+      {% for group in groups %}        
+        <div class="group">
+          <h4> {{ group.title }} класс</h4>
+        </div>                  
+      {% endfor %} 
+      <br>
+    </div>
+    <div class="divcenter">
+      <h4>Добавление класса</h4>
+    </div>
+    <div class="divcenter">  
+      <form action="" method="post">
+        {% csrf_token %}
+        <input name="form" type="hidden" value="add_group">
+        <div class="divcenter">Номер класса:</div>
+        <input type="text" name="title" required>
+        
+        <input type="submit" value="Добавить">
+      </form>
+    </div> 
+    
+    <hr>
+    <div class="divcenter">
+      <h4>Добавление ученика</h4>
+    </div>
+    <div class="aligncenter">  
+      <form action="" method="post">
+        {% csrf_token %}
+        <input name="form" type="hidden" value="add_user">
+        <table cellpadding=10>
+          {{ form_user.as_table }}
+          <tr style="font-weight: bold;">
+            <td align="center">
+              Выбирете класс:
+            </td>
+            <td>
+              <select name="group_id" required>
+              <option disabled selected></option>
+              {% for group in groups %}
+                <option value="{{ group.id }}">{{ group.title }}</option>
+              {% endfor %}
+            </td>  
+          </tr>
+          <tr>
+            <td colspan=2 align="center">
+              <input type="submit" value="Зарегистрировать">
+            </td>
+          </tr>
+        </table>        
+      </form>
+    </div>  
+  </section>
+{% endblock content %} ﻿

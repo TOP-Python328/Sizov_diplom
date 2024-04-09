@@ -3,7 +3,7 @@ URL configuration for virtuallab project.
 
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from main import views as mviews
 from users import views as uviews
@@ -18,8 +18,9 @@ urlpatterns = [
     path('register', uviews.register_teacher, name='teacher_register'),
     path('login', uviews.login, name='user_login'),
     path('logout', uviews.logout, name='user_logout'),
-#    path('teacher', uviews.teacher, name='teacher'),
-    path('teacher/<str:uid>', uviews.teacher, name='teacher'),
+    path('teacher', uviews.teacher, name='teacher'),
+    path('teacher', include('users.urls')),
+#    path('teacher/<str:uid>', uviews.teacher, name='teacher'),
     
     path('laboratories', lviews.laboratories, name='laboratories'),
     path('add_laboratory', lviews.add_laboratory, name='add_laboratory'),

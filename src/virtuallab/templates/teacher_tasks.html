@@ -1,0 +1,43 @@
+{% extends 'profile.html' %}
+
+{% block title %}
+  Кабинет учителя
+{% endblock title %}
+
+  
+{% block content %}
+  <section class="content">
+    <div class="divcenter">
+      <table border="1">
+          <tr style="font-weight: bold;">
+              <td colspan=2 align="center">
+                Лаборатория
+              </td>
+              <td colspan=2 align="center">
+                Задача
+              </td>
+              <td colspan=2 align="center">
+                Описание
+              </td>
+          </tr>
+          {% for task in tasks %}        
+            <tr>
+              <td colspan=2 align="center">
+                {{ task.laboratory.title }}
+              </td>
+              <td colspan=2 align="center">
+                {{ task.number }}
+              </td>
+              <td colspan=2 align="center">
+                {{ task.description }}
+              </td>
+            </tr>
+          {% endfor %}  
+        </table>
+        <br>
+      </div>  
+      <div class="divcenter">
+        <a href="{% url 'add_task' %}" class="btn">Добавить задачу</a> 
+      </div> 
+  </section>
+{% endblock content %} ﻿

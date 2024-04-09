@@ -1,0 +1,33 @@
+{% extends 'profile.html' %}
+
+{% block title %}
+  Кабинет учителя
+{% endblock title %}
+
+  
+{% block content %}
+  <section class="content">
+    <div class="divcenter">
+        <h3>Список учеников по классам </h3>
+      </div>  
+      {% for group in groups %}  
+      <div class="divcenter">
+        <table border="1">  
+          <caption style="font-weight: bold;">{{ group.title }} класс</caption>
+          <tr style="font-weight: bold;">
+              <td colspan=2 align="center">
+                Фамилия
+              </td>
+              <td colspan=2 align="center">
+                Имя 
+              </td>
+              <td colspan=2 align="center">
+                Отчество
+              </td>
+          </tr>
+        </table>
+      </div> 
+      <div><br></div>
+      {% endfor %}      
+  </section>
+{% endblock content %} ﻿

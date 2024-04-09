@@ -53,7 +53,7 @@
           {% for task in tasks %}        
             <tr>
               <td colspan=2 align="center">
-                {{ task.title }}
+                {{ task.laboratory.title }}
               </td>
               <td colspan=2 align="center">
                 {{ task.number }}
@@ -150,7 +150,6 @@
         <input name="form" type="hidden" value="add_group">
         {{ form2.as_table }}
         <input type="submit" value="Добавить">
-
       </form>
     </div>
   </main>
