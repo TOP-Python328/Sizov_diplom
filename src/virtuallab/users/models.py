@@ -33,7 +33,7 @@ class Teacher(Person):
         return f'{self.last_name} {self.first_name} {self.patr_name }'
 
 
-class Group(models.Model):
+class AcademicGroup(models.Model):
     class Meta:
         db_table = 'groups'
     
@@ -48,7 +48,7 @@ class Schoolboy(Person):
         db_table = 'schoolboys'        
 
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    group = models.ForeignKey(AcademicGroup, on_delete=models.CASCADE)
     
     def __repr__(self):
         return f'{self.last_name} {self.first_name}'

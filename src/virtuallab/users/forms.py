@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import BaseUserCreationForm
 
-from users.models import Group
+from users.models import AcademicGroup
 
 
 class AddTeacherForm(BaseUserCreationForm):
@@ -43,7 +43,7 @@ class AddTeacherForm(BaseUserCreationForm):
         
 class AddGroupForm(forms.ModelForm):
     class Meta:
-        model = Group
+        model = AcademicGroup
         fields = ['title','teacher']
 
 

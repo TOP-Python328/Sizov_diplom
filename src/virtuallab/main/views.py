@@ -3,7 +3,7 @@ from django.shortcuts import render
 from laboratories.forms import AddLaboratoryForm
 from laboratories.models import Laboratory, Task
 from users.forms import AddGroupForm
-from users.models import Group, Teacher
+from users.models import AcademicGroup, Teacher
 
 def main(request):
     return render(
@@ -31,7 +31,7 @@ def administration(request):
             'form1': form1,
             'form2': form2,
             'laboratories': Laboratory.objects.all(),
-            'groups': Group.objects.order_by('teacher'),
+            'groups': AcademicGroup.objects.order_by('teacher'),
             'tasks': Task.objects.order_by('laboratory'),
             'teachers': Teacher.objects.all(),
         }

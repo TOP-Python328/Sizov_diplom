@@ -1,8 +1,6 @@
 import random
 
-
 from django.shortcuts import render, redirect
-
 
 from django.contrib.auth import (
     authenticate, 
@@ -15,7 +13,7 @@ from django.contrib.auth.models import Group
 from laboratories.models import Laboratory, Task
 
 from users.forms import AddTeacherForm, AddGroupForm, AddSchoolboyForm
-from users.models import Teacher, Group, Schoolboy
+from users.models import Teacher, AcademicGroup, Schoolboy
 
 
 def login(request):
@@ -124,7 +122,7 @@ def teacher_tasks(request):
     
 def teacher_users(request):
     teacher = Teacher.objects.get(user_id=request.user.id)
-    groups = Group.objects.filter(teacher=teacher)
+    groups = AcademicGroup.objects.filter(teacher=teacher)
     users = Schoolboy.objects.filter(teacher=teacher)
     return render(
         request, 
@@ -138,7 +136,7 @@ def teacher_users(request):
     
 def teacher_setings(request):
     teacher = Teacher.objects.get(user_id=request.user.id)
-    groups = Group.objects.filter(teacher=teacher)  
+    groups = AcademicGroup.objects.filter(teacher=teacher)  
     users = Schoolboy.objects.filter(teacher=teacher)
     
     if request.method == 'GET':
@@ -148,7 +146,7 @@ def teacher_setings(request):
     elif request.method == 'POST':
         if request.POST['form'] == 'add_group':
             teacher = Teacher.objects.get(user_id=request.user.id)
-            Group(title=request.POST['title'],teacher=teacher).save()
+            AcademicGroup(title=request.POST['title'],teacher=teacher).save()
             form_group = AddGroupForm()
         elif request.POST['form'] == 'add_user':   
             form = AddSchoolboyForm(request.POST)
@@ -162,7 +160,7 @@ def teacher_setings(request):
                             patr_name = request.POST['patr_name'],
                             uid = str(random.randint(0, 9999)),
                             organization = request.POST['organization'],
-                            group = Group.objects.get(id=int(request.POST['group_id'])),   
+                            group = AcademicGroup.objects.get(id=int(request.POST['group_id'])),   
                             teacher = teacher,         
                     )
                     schoolboy.save()

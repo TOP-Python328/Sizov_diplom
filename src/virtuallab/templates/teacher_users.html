@@ -25,6 +25,19 @@
                 Отчество
               </td>
           </tr>
+          {% for user in users %}
+            <tr>
+              <td>
+                {{ user.last_name }} 
+              </td>
+              <td>
+                {{ user.first_name }}
+              </td>
+              <td>
+                {{ user.patr_name }}
+              </td>
+            </tr>
+          {% endfor %}
         </table>
       </div> 
       <div><br></div>
