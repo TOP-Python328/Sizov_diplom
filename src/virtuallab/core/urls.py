@@ -19,7 +19,8 @@ urlpatterns = [
     path('login', uviews.login, name='user_login'),
     path('logout', uviews.logout, name='user_logout'),
     path('teacher', uviews.teacher, name='teacher'),
-    path('teacher', include('users.urls')),
+    path('teacher', include('users.teacher_urls')),
+    path('student', include('users.user_urls')),
 #    path('teacher/<str:uid>', uviews.teacher, name='teacher'),
     
     path('laboratories', lviews.laboratories, name='laboratories'),

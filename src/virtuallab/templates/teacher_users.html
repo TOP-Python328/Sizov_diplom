@@ -12,31 +12,33 @@
       </div>  
       {% for group in groups %}  
       <div class="divcenter">
-        <table border="1">  
+        <table width="60%" border="1" cellpadding="4" cellspacing="0">  
           <caption style="font-weight: bold;">{{ group.title }} класс</caption>
           <tr style="font-weight: bold;">
-              <td colspan=2 align="center">
+              <td align="center">
                 Фамилия
               </td>
-              <td colspan=2 align="center">
+              <td align="center">
                 Имя 
               </td>
-              <td colspan=2 align="center">
+              <td align="center">
                 Отчество
               </td>
           </tr>
           {% for user in users %}
-            <tr>
-              <td>
-                {{ user.last_name }} 
-              </td>
-              <td>
-                {{ user.first_name }}
-              </td>
-              <td>
-                {{ user.patr_name }}
-              </td>
-            </tr>
+            {% if user.group_id == group.id %}          
+              <tr align="center">
+                <td>
+                  {{ user.last_name }} 
+                </td>
+                <td>
+                  {{ user.first_name }}
+                </td>
+                <td>
+                  {{ user.patr_name }}
+                </td>
+              </tr>
+            {% endif %}
           {% endfor %}
         </table>
       </div> 

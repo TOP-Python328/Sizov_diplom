@@ -100,11 +100,13 @@ def register_teacher(request):
 #    ) 
 def teacher(request):
     teacher = Teacher.objects.get(user_id=request.user.id)
+    user = request.user
     return render(
         request, 
         'teacher.html',
         {
             'teacher': teacher,
+            'user': user,
         }
     )    
     
@@ -179,3 +181,27 @@ def teacher_setings(request):
             'users': users.order_by('last_name'),
         }
     )    
+    
+def student(request):
+    student = Schoolboy.objects.get(user_id=request.user.id)
+    user = request.user
+    return render(
+        request, 
+        'student.html',
+        {
+            'student': student,
+            'user': user,
+        }
+    ) 
+
+def student_tasks(request):
+    student = Schoolboy.objects.get(user_id=request.user.id)
+    return render(
+        request, 
+        'student_tasks.html',
+        {
+            'student': student,
+            'tasks': Task.objects.all(),
+            'laboratories': Laboratory.objects.all()
+        }
+    ) 

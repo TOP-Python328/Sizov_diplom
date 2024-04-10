@@ -14,8 +14,8 @@
           Администратор
         {% elif group.name == 'Учителя' %}
           <a href="{% url 'teacher' %}">Личный кабинет</a>
-        {% elif group.name == 'Ученик' %}
-          Личный кабинет ученика
+        {% elif group.name == 'Ученики' %}
+          <a href="{% url 'student' %}">Личный кабинет</a>
         {% endif %}
       {% endfor %}
       

@@ -1,0 +1,60 @@
+{% extends 'profile.html' %}
+
+{% block title %}
+  Кабинет ученика
+{% endblock title %}
+
+{% block menu %}
+  <section class="menu">
+    <div class="menu__logo logo">Кабинет ученика</div>
+    <!-- Основное меню -->
+    <ul class="menu__list list">
+      <!-- Элемент меню -->
+      <li class="menu__item item">
+        <!-- Ссылка меню -->
+        <a href="{% url 'student' %}" class="menu__link link">
+          <span>Профиль</span>
+        </a>
+      </li>
+      <li class="menu__item item">
+        <a href="{% url 'student_tasks' %}" class="menu__link link">
+          <span>Задачи</span>
+        </a>
+      </li>
+      <li class="menu__item item">
+        <a href="#" class="menu__link link">
+          <span>Успеваемость</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="menu__admin admin">
+      <li class="admin__item item">
+        <a href="{% url 'main' %}" class="admin__link link">
+          <span>Главная</span>
+        </a>
+      </li>
+      <li class="admin__item item">
+        <a href="{% url 'user_logout' %}" class="admin__link link">
+          <span>Выйти</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+{% endblock menu %}
+    
+{% block content %}
+  <section class="content">
+    <div class="divcenter">
+      <h2>Профиль ученика</h2>
+    </div>
+    <div class="divcenter">
+      <h3>{{ student }}</h3>
+    </div>
+    <div class="divcenter">  
+      Класс: {{ student.group.title }}
+    </div>
+    <div class="divcenter">
+      Организация: {{ student.organization }} 
+    </div>     
+  </section>
+{% endblock content %} ﻿
