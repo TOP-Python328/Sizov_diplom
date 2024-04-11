@@ -7,8 +7,8 @@ class Laboratory(models.Model):
     class Meta:
         db_table = 'laboratories'
     
-    title = models.CharField(max_length=20, unique=True)
-    img = models.CharField(max_length=20)
+    title = models.CharField(verbose_name='Наименование', max_length=20, unique=True)
+    img = models.CharField(verbose_name='Картинка', max_length=20)
 
     def __repr__(self):
         return self.title

@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 
 class Person(models.Model):
     class Meta:
-#        db_table = 'persons'
         abstract = True
         
     user = models.OneToOneField(

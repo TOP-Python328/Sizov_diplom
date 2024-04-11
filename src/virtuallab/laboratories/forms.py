@@ -1,11 +1,17 @@
 from django import forms
 
-class AddLaboratoryForm(forms.Form):
-    title = forms.CharField(
-        label='Название',
-        max_length=20,
-    )
-    img = forms.CharField(
-        label='Картинка',
-        max_length=20,
-    )
+from laboratories.models import Laboratory
+
+
+class AddLaboratoryForm(forms.ModelForm):
+    class Meta:
+        model = Laboratory
+        fields = "__all__"
+#     title = forms.CharField(
+#         label='Название',
+#         max_length=20,
+#     )
+#     img = forms.CharField(
+#         label='Картинка',
+#         max_length=20,
+#     )

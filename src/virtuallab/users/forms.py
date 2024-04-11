@@ -29,15 +29,10 @@ class AddTeacherForm(BaseUserCreationForm):
     
     def is_valid(self):
         is_valid = super().is_valid()
- #       if is_valid:
-#            if Teacher.objects.filter(**self.cleaned_data):
-#                self.add_error(None, 'такой учитель уже существует')
-#                return False
         return is_valid
         
     def save(self):
         user = super().save()
-#        print(user)
         return user
         
         

@@ -30,7 +30,7 @@
         </div>
         <br>
         {{ form1.as_table }}
-        <input type="submit" value="Добавить">
+        <input type="submit" value="Добавить лабораторию">
       </form>
       <div class="divcenter">
         <hr class="hr2">
@@ -38,27 +38,27 @@
       
       <h3>Задачи</h3>
       <div class="divcenter">
-        <table border="1">
-          <tr style="font-weight: bold;">
-              <td colspan=2 align="center">
+        <table class="tb3">
+         <tr class="tr3">
+              <td>
                 Лаборатория
               </td>
-              <td colspan=2 align="center">
+              <td>
                 Задача
               </td>
-              <td colspan=2 align="center">
+              <td>
                 Описание
               </td>
           </tr>
           {% for task in tasks %}        
             <tr>
-              <td colspan=2 align="center">
+              <td>
                 {{ task.laboratory.title }}
               </td>
-              <td colspan=2 align="center">
+              <td>
                 {{ task.number }}
               </td>
-              <td colspan=2 align="center">
+              <td>
                 {{ task.description }}
               </td>
             </tr>
@@ -75,39 +75,39 @@
       
       <h3>Учителя</h3>
       <div class="divcenter">
-        <table border="1">
-          <tr style="font-weight: bold;">
-              <td colspan=2 align="center">
-                Фамилия
-              </td>
-              <td colspan=2 align="center">
-                Имя
-              </td>
-              <td colspan=2 align="center">
-                Отчество
-              </td>
-              <td colspan=2 align="center">
-                Должность
-              </td>
-              <td colspan=2 align="center">
-                Организация
-              </td>
+        <table class="tb3">
+         <tr class="tr3">
+            <td>
+              Фамилия
+            </td>
+            <td>
+              Имя
+            </td>
+            <td>
+              Отчество
+            </td>
+            <td>
+              Должность
+            </td>
+            <td>
+              Организация
+            </td>
           </tr>
           {% for teacher in teachers %}        
             <tr>
-              <td colspan=2 align="center">
+              <td>
                 {{ teacher.last_name }}
               </td>
-              <td colspan=2 align="center">
+              <td>
                 {{ teacher.first_name }}
               </td>
-              <td colspan=2 align="center">
+              <td>
                 {{ teacher.patr_name }}
               </td>
-              <td colspan=2 align="center">
+              <td>
                 {{ teacher.post }}
               </td>
-              <td colspan=2 align="center">
+              <td>
                 {{ teacher.organization }}
               </td>
             </tr>
@@ -124,32 +124,33 @@
       
       <h3>Классы</h3>
       <div class="divcenter">
-        <table border="1">
-          <tr style="font-weight: bold;">
-              <td colspan=2 align="center">
-                Учитель
-              </td>
-              <td colspan=2 align="center">
-                класс
-              </td>
+        <table class="tb3">
+          <tr class="tr3">
+            <td>
+              Учитель
+            </td>
+            <td>
+              класс
+            </td>
           </tr>
           {% for group in groups %}        
             <tr>
-              <td colspan=2 align="center">
+              <td>
                 {{ group.teacher }}
               </td>
-              <td colspan=2 align="center">
+              <td>
                 {{ group.title }}
               </td>
             </tr>
           {% endfor %}  
         </table>  
       </div>
+      <div><br></div>
       <form action="" method="post">
         {% csrf_token %}
         <input name="form" type="hidden" value="add_group">
         {{ form2.as_table }}
-        <input type="submit" value="Добавить">
+        <input type="submit" value="Добавить класс">
       </form>
     </div>
   </main>

@@ -14,9 +14,7 @@ def add_laboratory(request):
 
 def add_task(request):  
     if request.method == 'POST':
-        #print(request.POST['lab_id'])
         lab_id = int(request.POST['lab_id'])
-        #lab = Laboratory.objects.filter(id=lab_id) 
         title = request.POST['number']
         description = request.POST['description']
         solution = request.POST['solution']
@@ -27,7 +25,6 @@ def add_task(request):
                 laboratory_id = lab_id,
         )
         task.save()
-        #print(task)
         
         
     return render(

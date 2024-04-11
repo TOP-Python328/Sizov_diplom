@@ -13,16 +13,22 @@ def main(request):
 
 
 def administration(request):
-    if request.method == 'GET':
-        form1 = AddLaboratoryForm()
-        form2 = AddGroupForm()
+#    if request.method == 'GET':
+    form1 = AddLaboratoryForm()
+    form2 = AddGroupForm()
     
-    elif request.method == 'POST':
+    if request.method == 'POST':
         if request.POST['form'] == 'add_group':
             form = AddGroupForm(request.POST)
             if form.is_valid():
                 form.save()
                 form2 = AddGroupForm()
+        elif request.POST['form'] == 'add_lab':
+            form = AddLaboratoryForm(request.POST)
+            if form.is_valid():
+ #               Laboratory(**form.cleaned_data).save()
+                form.save()
+                form1 = AddLaboratoryForm()       
         
     return render(
         request,

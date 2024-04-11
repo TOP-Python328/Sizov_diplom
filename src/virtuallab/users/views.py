@@ -71,23 +71,6 @@ def register_teacher(request):
     )
 
 
-# def register_user(request):
-#     if request.method == 'GET':
-#         form = UserCreationForm()
-#     
-#     elif request.method == 'POST':
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('main', permanent=True)
-#     
-#     return render(
-#         request,
-#         'register_user.html',
-#         {'form': form}
-#     )
-
-
 #def teacher(request, uid: str):
 #    teacher = Teacher.objects.get(uid=uid)
 #    return render(
