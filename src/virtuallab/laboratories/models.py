@@ -25,6 +25,8 @@ class Task(models.Model):
     description = models.TextField()
     solution = models.CharField(max_length=200)
     laboratory = models.ForeignKey(Laboratory, on_delete=models.CASCADE)
+    start_value = models.CharField(max_length=100, null = True)
+    end_value = models.CharField(max_length=100, null = True) #default=None)
     
     def __repr__(self):
         return f'{self.number}: {self.description}'

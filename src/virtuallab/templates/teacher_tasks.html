@@ -8,28 +8,40 @@
 {% block content %}
   <section class="content">
     <div class="divcenter">
-      <table border="1">
-          <tr style="font-weight: bold;">
-              <td colspan=2 align="center">
+      <table border="1" align="center">
+         <tr style="font-weight: bold;">
+              <td>
                 Лаборатория
               </td>
-              <td colspan=2 align="center">
+              <td>
                 Задача
               </td>
-              <td colspan=2 align="center">
-                Описание
+              <td>
+                Условие задачи
+              </td>
+              <td>
+                Исходное состояние
+              </td>
+              <td>
+                Конечное состояние
               </td>
           </tr>
           {% for task in tasks %}        
             <tr>
-              <td colspan=2 align="center">
+              <td>
                 {{ task.laboratory.title }}
               </td>
-              <td colspan=2 align="center">
+              <td>
                 {{ task.number }}
               </td>
-              <td colspan=2 align="center">
+              <td>
                 {{ task.description }}
+              </td>
+              <td>
+                {{ task.start_value }}
+              </td>
+              <td>
+                {{ task.end_value }}
               </td>
             </tr>
           {% endfor %}  

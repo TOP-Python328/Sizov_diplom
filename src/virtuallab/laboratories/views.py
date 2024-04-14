@@ -18,11 +18,15 @@ def add_task(request):
         title = request.POST['number']
         description = request.POST['description']
         solution = request.POST['solution']
+        start_value = request.POST['start_value']
+        end_value = request.POST['end_value']
         task = Task(
                 number = title,
                 description = description,
                 solution = solution,
                 laboratory_id = lab_id,
+                start_value = start_value,
+                end_value = end_value,
         )
         task.save()
         
