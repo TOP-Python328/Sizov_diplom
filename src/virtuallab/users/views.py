@@ -10,7 +10,7 @@ from django.contrib.auth import (
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import Group
 
-from laboratories.models import Laboratory, Task
+from laboratories.models import Laboratory, Task, TaskSolution
 
 from users.forms import AddTeacherForm, AddGroupForm, AddSchoolboyForm
 from users.models import Teacher, AcademicGroup, Schoolboy
@@ -179,12 +179,47 @@ def student(request):
 
 def student_tasks(request):
     student = Schoolboy.objects.get(user_id=request.user.id)
+    solutions = TaskSolution.objects.filter(user_id=student.user_id)
     return render(
         request, 
         'student_tasks.html',
         {
             'student': student,
             'tasks': Task.objects.all(),
+            'solutions': solutions,
             'laboratories': Laboratory.objects.all()
         }
     ) 
+    
+def assigning_tast(request):
+    teacher = Teacher.objects.get(user_id=request.user.id)
+    groups = AcademicGroup.objects.filter(teacher=teacher)
+    users = Schoolboy.objects.filter(teacher=teacher)
+    
+    if request.method == 'POST':
+         teacher = Teacher.objects.get(user_id=request.user.id)
+         user = Schoolboy.objects.get(user_id=request.POST['user_id'])   
+         task = Task.objects.get(id=request.POST['task_id'])  
+
+         solution = TaskSolution(
+                solution = '',
+                status = 'выдано',
+                grade = 0,
+                scale = 100,
+                task = task,
+                teacher = teacher,
+                user = user,
+         )
+         solution.save()
+        
+    return render(
+        request, 
+        'assigning_task.html',
+        {
+            'teacher': teacher,
+            'laboratories': Laboratory.objects.all(),
+            'tasks': Task.objects.all(),
+            'groups': groups.order_by('title'),
+            'users': users.order_by('last_name'),
+        }
+    )

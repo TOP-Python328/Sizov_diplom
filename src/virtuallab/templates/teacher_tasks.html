@@ -1,7 +1,7 @@
 {% extends 'profile.html' %}
 
 {% block title %}
-  Кабинет учителя
+  Список задач
 {% endblock title %}
 
   
@@ -50,6 +50,10 @@
       </div>  
       <div class="divcenter">
         <a href="{% url 'add_task' %}" class="btn">Добавить задачу</a> 
+      </div> 
+      <hr>
+      <div class="divcenter">
+        Назначить задачу
       </div> 
   </section>
 {% endblock content %} ﻿

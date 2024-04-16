@@ -40,10 +40,11 @@ class TaskSolution(models.Model):
         db_table = 'tasks_solution'
     
     time_start = models.DateTimeField(auto_now_add=True)
-    time_end = models.DateTimeField()
-    solution = models.CharField(max_length=200)
+    time_end = models.DateTimeField(null = True)
+    solution = models.CharField(max_length=200, null = True)
     status = models.CharField(max_length=20) # подумать над перечислителем
-    grade = models.PositiveSmallIntegerField()
+    grade = models.PositiveSmallIntegerField(null = True)
+    scale = models.PositiveSmallIntegerField(default=100)
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     user = models.ForeignKey(Schoolboy, on_delete=models.CASCADE)

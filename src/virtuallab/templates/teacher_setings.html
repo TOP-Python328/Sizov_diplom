@@ -49,10 +49,11 @@
             </td>
             <td>
               <select name="group_id" required>
-              <option disabled selected></option>
-              {% for group in groups %}
-                <option value="{{ group.id }}">{{ group.title }}</option>
-              {% endfor %}
+                <option disabled selected></option>
+                {% for group in groups %}
+                  <option value="{{ group.id }}">{{ group.title }}</option>
+                {% endfor %}
+              </select>  
             </td>  
           </tr>
           <tr>

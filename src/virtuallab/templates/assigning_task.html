@@ -1,0 +1,72 @@
+{% extends 'profile.html' %}
+
+{% block title %}
+  Назначить задачу
+{% endblock title %}
+
+  
+{% block content %}
+  <section class="content">
+    <div class="divcenter">
+      <h3>Назначить задачу</h3>
+    </div>
+
+    <div align ="center">  
+      <form action="" method="post">
+        {% csrf_token %}
+          <div>
+            Выбирете лабораторию:
+          </div>
+          <div>
+            <select name="group_id" required>
+              <option disabled selected></option>
+              {% for lab in laboratories %}
+                <option value="{{ lab.id }}">{{ lab.title }}</option>
+              {% endfor %}
+            </select>  
+          </div>
+          <br>
+
+          <div>
+            Выбирете задачу:
+          </div>
+          <div>
+            <select name="task_id" required>
+              <option disabled selected></option>
+              {% for task in tasks %}
+                <option value="{{ task.id }}">{{ task.number }}</option>
+              {% endfor %}
+            </select>  
+          </div>
+          <br>
+          <div>
+            Выбирете класс:
+          </div>
+          <div>
+            <select name="group_id" required>
+              <option disabled selected></option>
+              {% for group in groups %}
+                <option value="{{ group.id }}">{{ group.title }}</option>
+              {% endfor %}
+            </select>  
+          </div>
+          <br>
+          <div>
+            Выбирете ученика:
+          </div>
+          <div>
+            <select name="user_id" required>
+              <option disabled selected></option>
+              {% for user in users %}
+                <option value="{{ user.user_id }}">{{ user }}</option>
+              {% endfor %}
+            </select>  
+          </div>
+          <br>
+          <div>
+              <input type="submit" value="Назначить">
+          </div>
+      </form>
+    </div>  
+  </section>
+{% endblock content %} ﻿
