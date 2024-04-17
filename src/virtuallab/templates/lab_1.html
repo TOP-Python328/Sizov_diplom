@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  Переливания
+{% endblock title %}
+
+{% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+{% block content %}
+  <header>
+        <h1>Переливания</h1>
+  </header>  
+  
+  <main> 
+    <div>
+      <h4>Условие задачи:</h4>
+    </div>  
+    <div class="div_lab">  
+      Текст условия задачи
+    </div>
+    <br>
+    <div><h4>Начальное состояние:</h4></div>
+    <div class="div_lab">  
+      начальное состояние
+    </div>
+    <br>
+    <div><h4>Конечное состояние:</h4></div>
+  </main>   
+  
+{% endblock content %}
+
+{% block footer %}
+
+{% endblock footer %}

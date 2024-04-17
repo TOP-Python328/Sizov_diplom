@@ -57,3 +57,11 @@ def tasks(request):
                 'laboratories': Laboratory.objects.all()
             }
         )
+        
+def lab_1(request):  
+    return render(
+            request,
+            'lab_1.html',
+            {
+            }
+        )        
