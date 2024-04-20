@@ -41,7 +41,6 @@ def logout(request):
 
 def register_teacher(request):
     if request.method == 'GET':
-       # form = UserCreationForm()
         form = AddTeacherForm()
     
     elif request.method == 'POST':
@@ -61,7 +60,6 @@ def register_teacher(request):
                 teacher.save()
                 group = Group.objects.get(name='Учителя')
                 user.groups.add(group)
-#                print(teacher)
                 return redirect('main', permanent=True)
     
     return render(
@@ -70,17 +68,7 @@ def register_teacher(request):
         {'form': form}
     )
 
-
-#def teacher(request, uid: str):
-#    teacher = Teacher.objects.get(uid=uid)
-#    return render(
-#        request, 
-#        'teacher.html',
-#        {
-#            'teacher': teacher,
-#            'users': teacher.schoolboy.all(),
-#        }
-#    ) 
+ 
 def teacher(request):
     teacher = Teacher.objects.get(user_id=request.user.id)
     user = request.user

@@ -42,7 +42,7 @@ class TaskSolution(models.Model):
     time_start = models.DateTimeField(auto_now_add=True)
     time_end = models.DateTimeField(null = True)
     solution = models.CharField(max_length=200, null = True)
-    status = models.CharField(max_length=20) # подумать над перечислителем
+    status = models.CharField(max_length=20) 
     grade = models.PositiveSmallIntegerField(null = True)
     scale = models.PositiveSmallIntegerField(default=100)
     task = models.ForeignKey(Task, on_delete=models.CASCADE)

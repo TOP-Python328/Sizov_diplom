@@ -5,8 +5,14 @@
   Переливания
 {% endblock title %}
 
-{% load static %}
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block extra_head %}
+  {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+    <script src="{% static 'js/lab_1.js' %}"></script>
+    
+{% endblock extra_head %} 
+  
   
 {% block content %}
   <header>
@@ -26,7 +32,14 @@
       начальное состояние
     </div>
     <br>
+    <div>
+      
+    </div>
+    <br>
     <div><h4>Конечное состояние:</h4></div>
+    <div class="div_lab">  
+      конечное состояние
+    </div>
   </main>   
   
 {% endblock content %}
