@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from laboratories.forms import AddLaboratoryForm
@@ -5,15 +6,15 @@ from laboratories.models import Laboratory, Task
 from users.forms import AddGroupForm
 from users.models import AcademicGroup, Teacher
 
+
 def main(request):
     return render(
         request,
         'main.html',
     )
 
-
+@login_required 
 def administration(request):
-#    if request.method == 'GET':
     form1 = AddLaboratoryForm()
     form2 = AddGroupForm()
     
@@ -26,7 +27,6 @@ def administration(request):
         elif request.POST['form'] == 'add_lab':
             form = AddLaboratoryForm(request.POST)
             if form.is_valid():
- #               Laboratory(**form.cleaned_data).save()
                 form.save()
                 form1 = AddLaboratoryForm()       
         

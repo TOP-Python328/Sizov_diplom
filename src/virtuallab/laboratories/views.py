@@ -1,8 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from laboratories.models import Laboratory, Task
 
 
+@login_required 
 def add_laboratory(request):  
     if request.method == 'POST':
         Laboratory(title=request.POST['title'],img=request.POST['img']).save()
@@ -12,6 +14,8 @@ def add_laboratory(request):
             'add_laboratory.html',
         )
 
+
+@login_required 
 def add_task(request):  
     if request.method == 'POST':
         lab_id = int(request.POST['lab_id'])

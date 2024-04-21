@@ -9,6 +9,7 @@ from django.contrib.auth import (
 )
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import Group
+from django.contrib.auth.decorators import login_required
 
 from laboratories.models import Laboratory, Task, TaskSolution
 
@@ -38,7 +39,7 @@ def logout(request):
     auth_logout(request)
     return redirect('main', permanent=True)
 
-
+@login_required 
 def register_teacher(request):
     if request.method == 'GET':
         form = AddTeacherForm()
@@ -68,7 +69,7 @@ def register_teacher(request):
         {'form': form}
     )
 
- 
+@login_required 
 def teacher(request):
     teacher = Teacher.objects.get(user_id=request.user.id)
     user = request.user
@@ -81,6 +82,7 @@ def teacher(request):
         }
     )    
     
+@login_required     
 def teacher_tasks(request):
     teacher = Teacher.objects.get(user_id=request.user.id)
     return render(
@@ -92,7 +94,8 @@ def teacher_tasks(request):
             'laboratories': Laboratory.objects.all()
         }
     ) 
-    
+
+@login_required     
 def teacher_users(request):
     teacher = Teacher.objects.get(user_id=request.user.id)
     groups = AcademicGroup.objects.filter(teacher=teacher)
@@ -106,7 +109,8 @@ def teacher_users(request):
             'users': users.order_by('last_name'),
         }
     ) 
-    
+
+@login_required     
 def teacher_setings(request):
     teacher = Teacher.objects.get(user_id=request.user.id)
     groups = AcademicGroup.objects.filter(teacher=teacher)  
@@ -152,7 +156,8 @@ def teacher_setings(request):
             'users': users.order_by('last_name'),
         }
     )    
-    
+
+@login_required     
 def student(request):
     student = Schoolboy.objects.get(user_id=request.user.id)
     user = request.user
@@ -165,6 +170,7 @@ def student(request):
         }
     ) 
 
+@login_required 
 def student_tasks(request):
     student = Schoolboy.objects.get(user_id=request.user.id)
     solutions = TaskSolution.objects.filter(user_id=student.user_id)
@@ -178,7 +184,8 @@ def student_tasks(request):
             'laboratories': Laboratory.objects.all()
         }
     ) 
-    
+
+@login_required     
 def assigning_tast(request):
     teacher = Teacher.objects.get(user_id=request.user.id)
     groups = AcademicGroup.objects.filter(teacher=teacher)
