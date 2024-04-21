@@ -16,7 +16,7 @@
   <main>
     <div class="laboratory">
       {% for lab in laboratories %}
-        <div>
+        <div class="lab-div">
           <a class="lab_a" href="{% url 'lab_1' %}"><h2> {{ lab }}</h2></a>
             <img src="{% static lab.img %}" alt="">
         </div>

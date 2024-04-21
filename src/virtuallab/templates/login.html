@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+{% load django_bootstrap5 %}
 
 {% block title %}
   Вход
@@ -15,14 +19,16 @@
     {% csrf_token %}
     
     <div class="laboratory">
-      <div class="aligncenter">
+      <div class="login">
         <h4>Авторизация</h4>
         <br>
-        <table class="tb2">
+        <!--<table class="tb2">
           {{ form.as_table }}
-        </table>
+        </table>-->
+        {% bootstrap_field form.username %}
+        {% bootstrap_field form.password %}
         <br>
-        <input type="submit" value="Войти">
+        <input class="btn btn-outline-success" type="submit" value="Войти">
       </div>
     </div>
   </form>

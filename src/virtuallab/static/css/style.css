@@ -122,7 +122,17 @@ a:hover {
     margin-bottom: 10px;
 }
 
-.laboratory div {
+.lab-div {
+    width: 450px;
+    /* background-color: rgb(253, 218, 141); */ 
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    border:  2px double rosybrown;
+}
+
+.login {
     width: 450px;
     /* background-color: rgb(253, 218, 141); */ 
     background-color: white;
